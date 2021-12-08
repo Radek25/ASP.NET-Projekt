@@ -1,0 +1,301 @@
+﻿    * {
+        font-family: 'Roboto', sans-serif;
+    }
+    body {
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+        background-color: #444444;
+        position: relative;
+    }
+/*Login*/
+    .login-container{
+        width: 350px;
+ 
+        background-color: #ffffff;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .login-container-top-view{
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        margin: 10px auto 20px;
+    }
+    .login-container-bottom-view{
+        width: 300px;
+        padding: 5px 20px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .login-container-bottom-view > input{
+        width: 210px;
+        height: 30px;
+        margin-top: 10px;
+        border: 2px solid #45b6af;
+        border-radius: 20px;
+        padding: 2px 10px;
+        outline: none;
+    }
+    .login-container-bottom-view > span{
+        width: 200px;
+        text-align: left;
+        padding: 5px;
+        color: red;
+        font-size: 12px;
+    }
+    .login-container-bottom-view > button {
+        width: 150px;
+        height: 40px;
+        margin: 30px auto 20px;
+        background-color: #45b6af;
+        color: #ffffff;
+        border: none;
+        border-radius: 20px;
+        text-align: center;
+    }
+    .login-container-bottom-view > button:hover{
+        cursor: pointer;
+    }
+    .login-container-bottom-view > button > span{
+        margin: 0 8px;
+        font-size: 18px;
+    }
+    .login-container-bottom-view > button > i{
+        font-size: 16px;
+    }
+    .error-message{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        padding: 10px 30px 10px 5px;
+        background-color: #e26a6a;
+        color: #ffffff;
+        text-align: center;
+        border-radius: 10px;
+    }
+/*Login*/
+/*Page Container*/
+    .page-container{
+        width: 100vw;
+        height: 100vh;
+        background-color: #404040;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+/*Page Container*/
+/*NavBar*/
+    .navbar-container{
+        width: 100%;
+        height: 50px;
+        padding: 2px 20px;
+        box-sizing: border-box;
+        background-color: #45b6af;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar-container > ul{
+        width: 40%;
+        height: 45px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navbar-container > ul > li{
+        list-style-type: none;
+        color: #ffffff;
+    }
+    .navbar-container > ul > li > a:hover{
+        cursor: pointer;
+        padding-bottom: 2px;
+        border-bottom: 1px solid #ffffff;
+    }
+    .navbar-container > ul > li > a:active{
+        color: #ffffff;
+        outline: none;
+          text-decoration: none;
+    }
+    .navbar-container > ul > li > a:visited{
+        color: #ffffff;
+        outline: none;
+        text-decoration: none;
+    }
+    .navbar-container > a:active{
+        color: #ffffff;
+        outline: none;
+        text-decoration: none;
+    }
+    .navbar-container > a:visited{
+        color: #ffffff;
+        text-decoration: none;
+    }
+    .option-icons{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .option-icons > a > i{
+        font-size: 30px;
+        color: #ffffff;
+        padding: 0 20px;
+    }
+/*NavBar*/
+/*Admin - StartPage*/
+    .admin-main-page-wrapper {
+        width: 100%;
+        height: 90%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .admin-main-page-wrapper > h1{
+        width: 100%;
+        padding: 30px 50px;
+        color: #ffffff;
+    }
+    .admin-icons{
+        width: 80%;
+        height: 50%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .fake-icon{
+        width: 20%;
+        height: 200px;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        border-radius: 20px;
+        box-shadow: 0px 0px 15px -3px #000000;
+    }
+    .fake-icon:hover{
+        cursor: pointer;
+        opacity: 0.5;
+    }
+    .fake-icon > i{
+        font-size: 100px;
+        color: #404040;
+    }
+    .fake-icon > span{
+        width: 90%;
+        text-align: center;
+        font-size: 25px;
+        font-weight: 900;
+    }
+/*Admin - StartPage*/
+/*AddForm View*/
+    .add-car-form{
+        margin-top: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .input-field, .selects-field{
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+        box-sizing: border-box;
+    }
+    .selects-field{
+        display: flex;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+    .input-field > input {
+        width: 50%;
+        height: 30px;
+        margin: 15px 10px;
+        padding: 5px;
+        border-radius: 10px;
+        border: 2px solid #45b6af;
+        outline: none;
+        box-shadow: 0px 0px 15px -3px #000000;
+    }
+    .selects-field > select {
+        width: 200px;
+        height: 35px;
+        margin: 15px 100px;
+        padding: 5px;
+        border-radius: 10px;
+        border: 2px solid #45b6af;
+        outline: none;
+        box-shadow: 0px 0px 15px -3px #000000;
+    }
+    .add-car-form > button{
+        width: 150px;
+        height: 35px;
+        margin: 15px;
+        background-color: #45b6af;
+        color: #ffffff;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        box-shadow: 0px 0px 15px -3px #000000;
+    }
+    .add-car-form > button:hover{
+        cursor: pointer;
+        opacity: 0.9;
+    }
+/*AddForm View*/
+/*FormList*/
+    .car-list-main-page-content{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .car-list-main-page-content > h1{
+        width: 100%;
+        margin: 30px auto;
+        text-align: center;
+        color: #ffffff;
+    }
+    table{
+        width: 70%;
+        margin: 20px auto 50px;;
+        text-align: center;
+    }
+    th{
+        width: 10%;
+        padding: 5px;
+        background-color: #45b6af;
+   
+        
+    }
+    td{
+        padding: 10px;
+        color: #ffffff;
+        border-bottom: 1px solid #45b6af;
+    }
+    .operations > a > i{
+        margin: 0px 5px;
+        color: #ffffff;
+    }
+    .car-list-main-page-content > span{
+        width: 100%;
+        text-align: center;
+    }
+    .add-new-car-list-button {
+        padding: 10px;
+        border-radius: 20px;
+        background-color: #45b6af;
+        color: #ffffff;
+        outline: none;
+        border: none;
+        text-decoration: none;
+    }
+/*FormList*/

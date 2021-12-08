@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "_Layout";
+}
+<div class="page-container">
+    <div class="navbar-container">
+        <img src="~/IMGS/logo-min.png" width="70" height="30">
+        <ul>
+            <li><a asp-controller="Car" asp-action="ShowList">Flota</a></li>
+            <li><a>Użytkownicy</a></li>
+            <li><a>Status floty</a></li>
+            <li><a>Rezerwacje</a></li>
+        </ul>
+        <div class="option-icons">
+            <a class="add-car" asp-controller="Car" asp-action="AddForm"><i class="fas fa-plus-circle"></i></a>
+            <a class="add-car" asp-controller="Car" asp-action="SearchForm"><i class="fas fa-search"></i></a>
+        </div>
+    </div>
+    <div class="admin-main-page-wrapper">
+        <h1>Witaj, Admin!</h1>
+        <div class="admin-icons">
+            <div class="fake-icon"><i class="fas fa-chart-line"></i><span>Statystyki</span></div>
+            <div class="fake-icon"><i class="fas fa-wrench"></i><span>Serwis</span></div>
+            <div class="fake-icon"><i class="fas fa-map-marked-alt"></i><span>Lokalizacje</span></div>
+            <div class="fake-icon"><i class="fas fa-history"></i><span>Historia</span></div>
+        </div>
+    </div>
+</div>

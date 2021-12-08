@@ -1,0 +1,16 @@
+﻿@model CarApp.Models.LogIn
+@{
+    Layout = "_Layout";
+}
+<div class="login-container">
+    <div class="login-container-top-view">
+        <img src="~/IMGS/logoNew.png" width="150" />
+    </div>
+        <form asp-action="LogIn" method="post" class="login-container-bottom-view">
+            <input asp-for="Login" placeholder="Login" />
+            <span asp-validation-for="Login" class="valid-log-data"></span>
+            <input asp-for="Password" placeholder="Hasło" />
+            <span asp-validation-for="Password" class="valid-log-data"></span>
+            <button type="submit"><span>Zaloguj</span><i class="fas fa-arrow-right"></i></button>
+        </form>
+</div>

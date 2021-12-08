@@ -1,0 +1,49 @@
+﻿@model CarApp.Models.Car
+@{ ViewBag.id = "id";}
+@{
+    Layout = "_Layout";
+}
+
+<div class="page-container">
+    <div class="navbar-container">
+        <img src="~/IMGS/logo-min.png" width="70" height="30">
+        <ul>
+            <li><a asp-controller="Car" asp-action="ShowList">Flota</a></li>
+            <li><a>Użytkownicy</a></li>
+            <li><a>Status floty</a></li>
+            <li><a>Rezerwacje</a></li>
+        </ul>
+        <div class="option-icons">
+            <a class="add-car" asp-controller="Car" asp-action="AddForm"><i class="fas fa-plus-circle"></i></a>
+            <a class="add-car" asp-controller="Car" asp-action="SearchForm"><i class="fas fa-search"></i></a>
+        </div>
+    </div>
+    <form class="add-car-form" asp-action="EditCar" method="post" asp-route-id="@Model.id">
+        <div class="input-field">
+            <input type="text" asp-for="Marka" placeholder="Marka" />
+            <span asp-validation-for="Marka" class="text-danger"></span>
+            <input type="text" asp-for="Model" placeholder="Model" />
+            <span asp-validation-for="Model" class="text-danger"></span>
+        </div>
+        <div class="input-field">
+           <input type="text" asp-for="Rok" placeholder="Rok produkcji" />
+           <span asp-validation-for="Rok" class="text-danger"></span>
+           <input type="text" asp-for="Silnik" placeholder="Silnik" />
+           <span asp-validation-for="Silnik" class="text-danger"></span>
+        </div>
+        <div class="selects-field">
+            <select asp-for="Paliwo">
+                <option>Benzyna</option>
+                <option>Disel</option>
+                <option>Elektryczny</option>
+                <option>Benzyna + Gaz</option>
+                <option>Hybryda</option>
+            </select>
+            <select asp-for="Skrzynia">
+                <option>Manulana</option>
+                <option>Automatyczna</option>
+            </select>
+        </div>
+        <button type="submit">Zapisz</button>
+    </form>
+</div>
