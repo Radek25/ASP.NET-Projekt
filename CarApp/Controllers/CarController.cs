@@ -88,7 +88,7 @@ namespace CarApp.Controllers
             }
             else
             {
-                return Json("NO PASS!");
+                return View("NoResultSearch");
             }
         }
 

@@ -18,31 +18,41 @@
             <a class="add-car" asp-controller="Car" asp-action="SearchForm"><i class="fas fa-search"></i></a>
         </div>
     </div>
-    <form class="add-car-form" asp-action="EditCar" method="post" asp-route-id="@Model.id">
-        <div class="input-field">
+    <form class="add-car-form" asp-action="AddCar" method="post">
+        <div class="input-and-span-wrapper">
             <input type="text" asp-for="Marka" placeholder="Marka" />
             <span asp-validation-for="Marka" class="text-danger"></span>
+        </div>
+        <div class="input-and-span-wrapper">
             <input type="text" asp-for="Model" placeholder="Model" />
             <span asp-validation-for="Model" class="text-danger"></span>
         </div>
-        <div class="input-field">
-           <input type="text" asp-for="Rok" placeholder="Rok produkcji" />
-           <span asp-validation-for="Rok" class="text-danger"></span>
-           <input type="text" asp-for="Silnik" placeholder="Silnik" />
-           <span asp-validation-for="Silnik" class="text-danger"></span>
+        <div class="input-and-span-wrapper">
+            <input type="number" asp-for="Rok" placeholder="Rok produkcji" />
+            <span asp-validation-for="Rok" class="text-danger"></span>
         </div>
-        <div class="selects-field">
+        <div class="input-and-span-wrapper">
+            <input type="text" asp-for="Silnik" placeholder="Silnik" />
+            <span asp-validation-for="Silnik" class="text-danger"></span>
+        </div>
+        <div class="select-and-span-wrapper">
             <select asp-for="Paliwo">
+                <option></option>
                 <option>Benzyna</option>
                 <option>Disel</option>
                 <option>Elektryczny</option>
                 <option>Benzyna + Gaz</option>
                 <option>Hybryda</option>
             </select>
+            <span asp-validation-for="Paliwo" class="text-danger"></span>
+        </div>
+        <div class="select-and-span-wrapper">
             <select asp-for="Skrzynia">
+                <option></option>
                 <option>Manulana</option>
                 <option>Automatyczna</option>
             </select>
+            <span asp-validation-for="Skrzynia" class="text-danger"></span>
         </div>
         <button type="submit">Zapisz</button>
     </form>

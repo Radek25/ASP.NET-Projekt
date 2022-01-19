@@ -198,48 +198,51 @@
     }
 /*Admin - StartPage*/
 /*AddForm View*/
-    .add-car-form{
-        margin-top: 10%;
+    .add-car-form {
+        width: 60vw;
+        margin: 10% auto 20px;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-wrap: wrap;
+    }
+    .input-and-span-wrapper, .select-and-span-wrapper{
+        display: flex;
+        align-items: center;
         flex-direction: column;
-    }
-    .input-field, .selects-field{
-        width: 60%;
-        display: flex;
-        justify-content: space-between;
+        width: 25vw;
+        height: 62px;
+        margin: 10px;
         box-sizing: border-box;
+        position: relative;
     }
-    .selects-field{
-        display: flex;
-        justify-content: center;
-        box-sizing: border-box;
-    }
-    .input-field > input {
-        width: 50%;
-        height: 30px;
-        margin: 15px 10px;
-        padding: 5px;
-        border-radius: 10px;
-        border: 2px solid #45b6af;
-        outline: none;
-        box-shadow: 0px 0px 15px -3px #000000;
-    }
-    .selects-field > select {
-        width: 200px;
+    .input-and-span-wrapper > input{
+        width: 250px;
         height: 35px;
-        margin: 15px 100px;
-        padding: 5px;
-        border-radius: 10px;
-        border: 2px solid #45b6af;
         outline: none;
-        box-shadow: 0px 0px 15px -3px #000000;
+        padding: 2px 10px;
+        margin-bottom: 5px;
+        border: 2px solid #45b6af;
+        border-radius: 10px;
     }
-    .add-car-form > button{
+    .select-and-span-wrapper > select{
         width: 150px;
         height: 35px;
-        margin: 15px;
+        outline: none;
+        margin-bottom: 5px;
+        border: 2px solid #45b6af;
+        border-radius: 10px;
+    }
+    .text-danger{
+        color: red;
+        font-size: 12px;
+        position: absolute;
+        bottom: 0;
+    }
+    .add-car-form > button {
+        width: 150px;
+        height: 35px;
+        margin: 25px 10px 15px;
         background-color: #45b6af;
         color: #ffffff;
         border-radius: 10px;
@@ -266,7 +269,7 @@
     }
     table{
         width: 70%;
-        margin: 20px auto 50px;;
+        margin: 20px auto 50px;
         text-align: center;
     }
     th{
@@ -299,3 +302,19 @@
         text-decoration: none;
     }
 /*FormList*/
+/*No Result View*/
+    .no-result-wrapper{
+        width: 97vw;
+        height: 90vh;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 100px 20px 20px;
+        box-sizing: border-box;
+    }
+    .no-result-wrapper > p{
+        font-size: 26px;
+        margin: 20px 10px 50px;
+        color: #ffffff;
+    }
+/*No Result View*/

@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace CarApp.Models
@@ -87,13 +88,18 @@ namespace CarApp.Models
     public class Car
     {
         [Required(ErrorMessage = "Padaj markê samochodu!")]
+        [MinLength(length:2, ErrorMessage = "Zbyt którka nazwa marki samochodu!")]
+        [MaxLength(length:20, ErrorMessage = "Zbyt d³uga nazwa marki samochodu!")]
         public string Marka { get; set; }
         [Required(ErrorMessage = "Padaj model samochodu!")]
+        [MinLength(length: 1, ErrorMessage = "Zbyt którka nazwa modelu samochodu!")]
+        [MaxLength(length: 15, ErrorMessage = "Zbyt d³uga nazwa modelu samochodu!")]
         public string Model { get; set; }
         [Required(ErrorMessage = "Padaj rok produkcji samochodu!")]
-        [RegularExpression("^[12][0-9]{3}$")]
+        [RegularExpression("[2]{1}[0]{1}[0-2]{1}[0-9]{1}", ErrorMessage="Podano nieprawid³owy format daty!")]
         public string Rok { get; set; }
         [Required(ErrorMessage = "Uzupe³nij dane dotycz¹ce silnika!!")]
+        [RegularExpression("^^[a-zA-Z0-9-_. /s]+$", ErrorMessage = "Podano nieprawid³owe oznaczenie silnika!")]
         public string Silnik { get; set; }
         [Required(ErrorMessage = "Uzupe³nij informacje o paliwie!")]
         public string Paliwo { get; set; }
@@ -101,6 +107,15 @@ namespace CarApp.Models
         public string Skrzynia { get; set; }
         [Key]
         public int id { get; set; }
+        //public ICollection<User> Users { get; set; }
+        public User User { get; set; }
+        public int Userid { get; set; } 
+    }
+    public class User
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public ICollection<Car> Cars { get; set; }
     }
     public class ApplicationDbContext : DbContext
     {
