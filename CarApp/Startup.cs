@@ -1,7 +1,9 @@
+using CarApp.Enums;
 using CarApp.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,11 +28,23 @@ namespace CarApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<AppIdentityDbContext>(options =>
             options.UseSqlServer(Configuration["Data:Cars:ConnectionString"]));
+     
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<AppIdentityDbContext>()
+                .AddDefaultTokenProviders();
+            services.AddSession();
+
             services.AddTransient<ICarRepository, EFCarRepository>();
             services.AddTransient<ICrudCarRepository, CrudCarRepository>();
             services.AddTransient<ICustomerCarRepository, CustomerCarRepository>();
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("AdminAccess", policy => policy.RequireRole(Roles.Admin.ToString()));
+                options.AddPolicy("UsersAccess", policy => policy.RequireRole(Roles.User.ToString()));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,15 +64,19 @@ namespace CarApp
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Login}/{action=Login}/{id?}");
             });
+            IdentitySeedData.CreateUserRole(app);
+
         }
     }
 }
