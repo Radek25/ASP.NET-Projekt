@@ -39,12 +39,16 @@ namespace CarApp.Controllers
                     await _signInManager.SignOutAsync();
                     if ((await _signInManager.PasswordSignInAsync(user, Login.Password, false, false)).Succeeded)
                     {
-                        return View("MainPage");
+                        return RedirectToAction("Index", "Login");
                     }
                 }
             }
             ModelState.AddModelError("", "Nieprawidłowa nazwa użytkownika lub hasło");
             return View("Login");
+        }
+        public IActionResult Index()
+        {
+            return View("MainPage");
         }
 
         public async Task<RedirectResult> Logout(string returnURL = "/")

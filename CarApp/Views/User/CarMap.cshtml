@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "_Layout";
+}
+<div class="page-container">
+    <div class="navbar-container">
+        <img src="~/IMGS/logo-min.png" width="70" height="30">
+        <ul>
+            <li><a asp-controller="Login" asp-action="Index">Strona Główna</a></li>
+            <li><a asp-controller="Car" asp-action="ShowFree">Dostępne pojazdy</a></li>
+            <li><a asp-controller="User" asp-action="GetData">Dane użytkownika</a></li>
+            <li><a asp-controller="User" asp-action="GetReservation">Moje rezerwacje</a></li>
+        </ul>
+        <div class="option-icons">
+            <a class="add-car" asp-controller="Login" asp-action="Logout"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </div>
+    <div style="width: 100%; display: flex; justify-content: center; margin-top: 100px;"><iframe width="1000" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Filipa%2018%20Krak%C3%B3w+(Najbli%C5%BCsze%20wolne%20auto)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+</div>

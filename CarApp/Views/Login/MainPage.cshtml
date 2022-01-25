@@ -4,25 +4,55 @@
 <div class="page-container">
     <div class="navbar-container">
         <img src="~/IMGS/logo-min.png" width="70" height="30">
-        <ul>
-            <li><a asp-controller="Car" asp-action="ShowList">Flota</a></li>
-            <li><a>Użytkownicy</a></li>
-            <li><a>Status floty</a></li>
-            <li><a>Rezerwacje</a></li>
-        </ul>
-        <div class="option-icons">
-            <a class="add-car" asp-controller="Car" asp-action="AddForm"><i class="fas fa-plus-circle"></i></a>
-            <a class="add-car" asp-controller="Car" asp-action="SearchForm"><i class="fas fa-search"></i></a>
-            <a class="add-car" asp-controller="Login" asp-action="Logout"><i class="fas fa-sign-out-alt"></i></a>
-        </div>
+        @if (User.IsInRole("Admin"))
+        {
+            <ul>
+                <li><a asp-controller="Login" asp-action="Index">Strona Główna</a></li>
+                <li><a asp-controller="Car" asp-action="ShowList">Flota</a></li>
+                <li><a asp-controller="Admin" asp-action="ShowUsers">Użytkownicy</a></li>
+                <li><a asp-controller="Car" asp-action="ShowStatus">Status floty</a></li>
+            </ul>
+        }
+        else
+        {
+            <ul>
+                <li><a asp-controller="Login" asp-action="Index">Strona Główna</a></li>
+                <li><a asp-controller="Car" asp-action="ShowFree">Dostępne pojazdy</a></li>
+                <li><a asp-controller="User" asp-action="GetData">Dane użytkownika</a></li>
+                <li><a asp-controller="User" asp-action="GetReservation">Moje rezerwacje</a></li>
+            </ul>
+        }
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="option-icons">
+                <a class="add-car" asp-controller="Car" asp-action="AddForm"><i class="fas fa-plus-circle"></i></a>
+                <a class="add-car" asp-controller="Car" asp-action="SearchForm"><i class="fas fa-search"></i></a>
+                <a class="add-car" asp-controller="Login" asp-action="Logout"><i class="fas fa-sign-out-alt"></i></a>
+            </div>
+        }
+        else
+        {
+            <div class="option-icons">
+                <a class="add-car" asp-controller="Login" asp-action="Logout"><i class="fas fa-sign-out-alt"></i></a>
+            </div>
+        }
     </div>
     <div class="admin-main-page-wrapper">
         <h1>Witaj, @(User.IsInRole("Admin") ? "Admin" : "User")</h1>
-        <div class="admin-icons">
-            <div class="fake-icon"><i class="fas fa-chart-line"></i><span>Statystyki</span></div>
-            <div class="fake-icon"><i class="fas fa-wrench"></i><span>Serwis</span></div>
-            <div class="fake-icon"><i class="fas fa-map-marked-alt"></i><span>Lokalizacje</span></div>
-            <div class="fake-icon"><i class="fas fa-history"></i><span>Historia</span></div>
-        </div>
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="admin-icons">
+                <a class="fake-icon" asp-controller="Admin" asp-action="ShowStatistic"><i class="fas fa-chart-line"></i><span>Statystyki</span></a>
+                <a class="fake-icon" asp-controller="Admin" asp-action="ShowServiceList"><i class="fas fa-wrench"></i><span>Serwis</span></a>
+                <a class="fake-icon" asp-controller="Admin" asp-action="ShowLocation"><i class="fas fa-map-marked-alt"></i><span>Lokalizacje</span></a>
+            </div>
+        }
+        else
+        {
+            <div class="admin-icons">
+                <a class="fake-icon" asp-controller="User" asp-action="ShowPayment"><i class="fas fa-money-check-alt"></i><span>Płatności</span></a>
+                <a class="fake-icon" asp-controller="User" asp-action="ShowMap"><i class="fas fa-parking"></i><span>Parkingi</span></a>
+            </div>
+        }
     </div>
 </div>

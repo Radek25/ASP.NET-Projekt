@@ -7,8 +7,8 @@
         <ul>
             <li><a asp-controller="Login" asp-action="Index">Strona Główna</a></li>
             <li><a asp-controller="Car" asp-action="ShowList">Flota</a></li>
-            <li><a>Użytkownicy</a></li>
-            <li><a>Status floty</a></li>
+            <li><a asp-controller="Admin" asp-action="ShowUsers">Użytkownicy</a></li>
+            <li><a asp-controller="Car" asp-action="ShowStatus">Status floty</a></li>
         </ul>
         <div class="option-icons">
             <a class="add-car" asp-controller="Car" asp-action="AddForm"><i class="fas fa-plus-circle"></i></a>
@@ -16,8 +16,5 @@
             <a class="add-car" asp-controller="Login" asp-action="Logout"><i class="fas fa-sign-out-alt"></i></a>
         </div>
     </div>
-    <div class="no-result-wrapper">
-        <p>W bazie danych nie ma pojazdu o takiej marce lub modelu!</p>
-        <a class="add-new-car-list-button" asp-controller="Car" asp-action="SearchForm">Wyszukaj kolejny pojazd</a>
-    </div>
+    <div style="width: 100%; display: flex; justify-content: center; margin-top: 100px;"><iframe width="1000" height="500" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Filipa%2018%20Krak%C3%B3w+(Najbli%C5%BCsze%20wolne%20auto)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
 </div>

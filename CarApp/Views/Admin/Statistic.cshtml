@@ -7,8 +7,8 @@
         <ul>
             <li><a asp-controller="Login" asp-action="Index">Strona Główna</a></li>
             <li><a asp-controller="Car" asp-action="ShowList">Flota</a></li>
-            <li><a>Użytkownicy</a></li>
-            <li><a>Status floty</a></li>
+            <li><a asp-controller="Admin" asp-action="ShowUsers">Użytkownicy</a></li>
+            <li><a asp-controller="Car" asp-action="ShowStatus">Status floty</a></li>
         </ul>
         <div class="option-icons">
             <a class="add-car" asp-controller="Car" asp-action="AddForm"><i class="fas fa-plus-circle"></i></a>
@@ -16,8 +16,8 @@
             <a class="add-car" asp-controller="Login" asp-action="Logout"><i class="fas fa-sign-out-alt"></i></a>
         </div>
     </div>
-    <div class="no-result-wrapper">
-        <p>W bazie danych nie ma pojazdu o takiej marce lub modelu!</p>
-        <a class="add-new-car-list-button" asp-controller="Car" asp-action="SearchForm">Wyszukaj kolejny pojazd</a>
+    <div class="statistic-img-wrapper">
+        <img src="~/IMGS/sta1.png" width="590" height="300">
+        <img src="~/IMGS/sta2.png" width="590" height="300">
     </div>
 </div>

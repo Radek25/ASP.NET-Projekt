@@ -37,6 +37,8 @@ namespace CarApp.Models
                 admin = new IdentityUser()
                 {
                     UserName = adminLogin,
+                    Email = "admin@admin.pl",
+                    PhoneNumber = "111111111"
                 };
                 await userManager.CreateAsync(admin, adminPassword);
             }
@@ -48,6 +50,8 @@ namespace CarApp.Models
                 user = new IdentityUser()
                 {
                     UserName = userLogin,
+                    Email = "user@user.pl",
+                    PhoneNumber = "222222222"
                 };
                 await userManager.CreateAsync(user, userPassword);
             }

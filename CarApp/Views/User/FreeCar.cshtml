@@ -1,4 +1,5 @@
-﻿@model IList<CarApp.Models.Car>
+﻿@model IQueryable<CarApp.Models.Car>
+
 @{
     Layout = "_Layout";
 }
@@ -7,18 +8,16 @@
         <img src="~/IMGS/logo-min.png" width="70" height="30">
         <ul>
             <li><a asp-controller="Login" asp-action="Index">Strona Główna</a></li>
-            <li><a asp-controller="Car" asp-action="ShowList">Flota</a></li>
-            <li><a>Użytkownicy</a></li>
-            <li><a>Status floty</a></li>
+            <li><a asp-controller="Car" asp-action="ShowFree">Dostępne pojazdy</a></li>
+            <li><a asp-controller="User" asp-action="GetData">Dane użytkownika</a></li>
+            <li><a asp-controller="User" asp-action="GetReservation">Moje rezerwacje</a></li>
         </ul>
         <div class="option-icons">
-            <a class="add-car" asp-controller="Car" asp-action="AddForm"><i class="fas fa-plus-circle"></i></a>
-            <a class="add-car" asp-controller="Car" asp-action="SearchForm"><i class="fas fa-search"></i></a>
             <a class="add-car" asp-controller="Login" asp-action="Logout"><i class="fas fa-sign-out-alt"></i></a>
         </div>
     </div>
     <div class="car-list-main-page-content">
-        <h1>Wyszukane</h1>
+        <h1>Dostępne pojazdy</h1>
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th>Marka</th>
@@ -27,7 +26,7 @@
                 <th>Silnik</th>
                 <th>Paliwo</th>
                 <th>Skrzynia biegów</th>
-                <th>Operacje</th>
+                <th>Zarezerwuj</th>
             </tr>
             <tbody>
                 @foreach (var car in @Model)
@@ -52,15 +51,11 @@
                             @car.Skrzynia
                         </td>
                         <td class="operations">
-                            <a asp-controller="Car" asp-action="EditForm" asp-route-ID="@car.id"><i class="fas fa-pencil-alt"></i></a>
-                            <a asp-controller="Car" asp-action="DeleteCar" asp-route-ID="@car.id"><i class="fas fa-trash"></i></a>
+                            <a asp-route-ID="@car.id"><i class="fas fa-plus"></i></a>
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
-        <span>
-            <a class="add-new-car-list-button" asp-controller="Car" asp-action="SearchForm">Wyszukaj kolejny pojazd</a>
-        </span>
     </div>
 </div>

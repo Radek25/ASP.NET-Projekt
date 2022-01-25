@@ -20,5 +20,13 @@ namespace CarApp.Controllers
         {
             return View();
         }
+        public IActionResult ShowLocation()
+        {
+            return View("LocationMap");
+        }
+        public IActionResult ShowStatistic()
+        {
+            return View("Statistic");
+        }
     }
 }

@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "_Layout";
+}
+<div class="page-container">
+    <div class="navbar-container">
+        <img src="~/IMGS/logo-min.png" width="70" height="30">
+        <ul>
+            <li><a asp-controller="Login" asp-action="Index">Strona Główna</a></li>
+            <li><a asp-controller="Car" asp-action="ShowFree">Dostępne pojazdy</a></li>
+            <li><a asp-controller="User" asp-action="GetData">Dane użytkownika</a></li>
+            <li><a asp-controller="User" asp-action="GetReservation">Moje rezerwacje</a></li>
+        </ul>
+        <div class="option-icons">
+            <a class="add-car" asp-controller="Login" asp-action="Logout"><i class="fas fa-sign-out-alt"></i></a>
+        </div>
+    </div>
+    <p class="payment-info">Wszystkie płatności zrealizowane <i class="fas fa-check"></i></p>
+</div>

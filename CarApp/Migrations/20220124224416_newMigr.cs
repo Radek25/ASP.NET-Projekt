@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CarApp.Migrations
 {
-    public partial class newMigration : Migration
+    public partial class newMigr : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
