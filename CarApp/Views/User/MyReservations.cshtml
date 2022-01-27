@@ -26,7 +26,6 @@
                 <th>Silnik</th>
                 <th>Paliwo</th>
                 <th>Skrzynia biegów</th>
-                <th>Zarezerwuj</th> <!--W tej kolumnie przycisk który powoduje zarezerwowanie pojazdu przez usera-->
             </tr>
             <tbody>
                 @foreach (var car in @Model)
@@ -49,9 +48,6 @@
                         </td>
                         <td>
                             @car.Skrzynia
-                        </td>
-                        <td class="operations">
-                            <a asp-route-ID="@car.id"><i class="fas fa-plus"></i></a> <!--Przycisk-->
                         </td>
                     </tr>
                 }
