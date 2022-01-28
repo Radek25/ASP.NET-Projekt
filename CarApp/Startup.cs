@@ -1,5 +1,7 @@
 using CarApp.Enums;
+using CarApp.Filters;
 using CarApp.Models;
+using CarApp.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -39,12 +41,16 @@ namespace CarApp
             services.AddTransient<ICarRepository, EFCarRepository>();
             services.AddTransient<ICrudCarRepository, CrudCarRepository>();
             services.AddTransient<ICustomerCarRepository, CustomerCarRepository>();
+            services.AddTransient<ICarServiceRepository, CarServiceRepository>();
+            services.AddSingleton<BasicAuthorizationFilter>();
+            services.AddMvc().AddMvcOptions(options => options.Filters.AddService<BasicAuthorizationFilter>());
 
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("AdminAccess", policy => policy.RequireRole(Roles.Admin.ToString()));
                 options.AddPolicy("UsersAccess", policy => policy.RequireRole(Roles.User.ToString()));
             });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

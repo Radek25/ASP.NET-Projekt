@@ -28,5 +28,10 @@ namespace CarApp.Controllers
         {
             return View("Statistic");
         }
+
+        public IActionResult ShowServiceList()
+        {
+            return RedirectToAction("Index","Service");
+        }
     }
 }

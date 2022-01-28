@@ -9,8 +9,8 @@
         <ul>
             <li><a asp-controller="Login" asp-action="Index">Strona Główna</a></li>
             <li><a asp-controller="Car" asp-action="ShowList">Flota</a></li>
-            <li><a asp-controller="Admin" asp-action="ShowUsers">Użytkownicy</a></li>
-            <li><a asp-controller="Car" asp-action="ShowStatus">Status floty</a></li>
+            <li><a>Użytkownicy</a></li>
+            <li><a>Status floty</a></li>
         </ul>
         <div class="option-icons">
             <a class="add-car" asp-controller="Car" asp-action="AddForm"><i class="fas fa-plus-circle"></i></a>
@@ -33,30 +33,34 @@
             <tbody>
                 @foreach (var car in @Model)
                 {
-                    <tr>
-                        <td>
-                            @car.Marka
-                        </td>
-                        <td>
-                            @car.Model
-                        </td>
-                        <td>
-                            @car.Rok
-                        </td>
-                        <td>
-                            @car.Silnik
-                        </td>
-                        <td>
-                            @car.Paliwo
-                        </td>
-                        <td>
-                            @car.Skrzynia
-                        </td>
-                        <td class="operations">
-                            <a asp-controller="Car" asp-action="EditForm" asp-route-ID="@car.id"><i class="fas fa-pencil-alt"></i></a>
-                            <a asp-controller="Car" asp-action="DeleteCar" asp-route-ID="@car.id"><i class="fas fa-trash"></i></a>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>
+                        @car.Marka
+                    </td>
+                    <td>
+                        @car.Model
+                    </td>
+                    <td>
+                        @car.Rok
+                    </td>
+                    <td>
+                        @car.Silnik
+                    </td>
+                    <td>
+                        @car.Paliwo
+                    </td>
+                    <td>
+                        @car.Skrzynia
+                    </td>
+                    <td>
+                        @(car.CarService != null ? car.CarService.DateOfService : null)
+                    </td>
+                    <td class="operations">
+                        <a asp-controller="Car" asp-action="EditForm" asp-route-ID="@car.id"><i class="fas fa-pencil-alt"></i></a>
+                        <a asp-controller="Car" asp-action="DeleteCar" asp-route-ID="@car.id"><i class="fas fa-trash"></i></a>
+                        <a asp-controller="Service" asp-action="AddService" asp-route-ID="@car.id"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>

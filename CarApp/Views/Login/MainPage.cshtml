@@ -9,17 +9,17 @@
             <ul>
                 <li><a asp-controller="Login" asp-action="Index">Strona Główna</a></li>
                 <li><a asp-controller="Car" asp-action="ShowList">Flota</a></li>
-                <li><a asp-controller="Admin" asp-action="ShowUsers">Użytkownicy</a></li>
-                <li><a asp-controller="Car" asp-action="ShowStatus">Status floty</a></li>
+                <li><a>Użytkownicy</a></li>
+                <li><a>Status floty</a></li>
             </ul>
         }
         else
         {
             <ul>
                 <li><a asp-controller="Login" asp-action="Index">Strona Główna</a></li>
-                <li><a asp-controller="Car" asp-action="ShowFree">Dostępne pojazdy</a></li>
+                <li><a>Dostępne pojazdy</a></li>
                 <li><a asp-controller="User" asp-action="GetData">Dane użytkownika</a></li>
-                <li><a asp-controller="User" asp-action="GetReservation">Moje rezerwacje</a></li>
+                <li><a>Moje rezerwacje</a></li>
             </ul>
         }
         @if (User.IsInRole("Admin"))
@@ -43,7 +43,7 @@
         {
             <div class="admin-icons">
                 <a class="fake-icon" asp-controller="Admin" asp-action="ShowStatistic"><i class="fas fa-chart-line"></i><span>Statystyki</span></a>
-                <a class="fake-icon" asp-controller="Admin" asp-action="ShowServiceList"><i class="fas fa-wrench"></i><span>Serwis</span></a>
+                <a class="fake-icon"><i class="fas fa-wrench"></i><span>Serwis</span></a>
                 <a class="fake-icon" asp-controller="Admin" asp-action="ShowLocation"><i class="fas fa-map-marked-alt"></i><span>Lokalizacje</span></a>
             </div>
         }

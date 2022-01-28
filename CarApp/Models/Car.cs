@@ -4,6 +4,9 @@ namespace CarApp.Models
 {
     public class Car
     {
+        [Key]
+        public int id { get; set; }
+
         [Required(ErrorMessage = "Padaj markê samochodu!")]
         [MinLength(length: 2, ErrorMessage = "Zbyt którka nazwa marki samochodu!")]
         [MaxLength(length: 20, ErrorMessage = "Zbyt d³uga nazwa marki samochodu!")]
@@ -22,8 +25,7 @@ namespace CarApp.Models
         public string Paliwo { get; set; }
         [Required(ErrorMessage = "Uzupe³nij informacje o skrzyni biegów!!")]
         public string Skrzynia { get; set; }
-        public bool IsFree { get; set; }
-        [Key]
-        public int id { get; set; }
+        public bool IsFree { get; set; }       
+        public CarService CarService{ get; set; }
     }
 }
